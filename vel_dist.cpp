@@ -10,10 +10,13 @@ VelDist::VelDist()
 	v_th = 2;
 	n_0  = 2000;
 	v_b  = 4;
+	ptr_f = new double[n_0];
+	ptr_v = new double[n_0];
 }
 VelDist::~VelDist()
 {
-
+	delete ptr_v;
+	delete ptr_f;
 }
 void VelDist::setV_th(double Vth)
 {
@@ -32,6 +35,10 @@ int VelDist::setn_0(int n0)
 	else
 	{
 		n_0 = n0;
+		delete ptr_f;
+		delete ptr_v;
+		ptr_f = new double[n_0];
+		ptr_v = new double[n_0];
 	}
 	return 0;
 }
@@ -52,53 +59,59 @@ void VelDist::show()
 	std::cout << "n_0 = " << n_0 << std::endl;
 
 }
-double VelDist::generateV()
+int VelDist::getN()
+{
+	return n_0;
+}
+double VelDist::getF(int i)
+{
+	return *(ptr_f+i);
+}
+double VelDist::getV(int i)
+{
+	return *(ptr_v+i);
+}
+void VelDist::sampleV()
+{
+	for (int i = 1 ; i <= n_0 ; ++i)
+	{
+		*(ptr_v+i) = generateV(i);
+	}
+}
+double VelDist::generateV(int i)
 {
 	//generate random velocity b/w v_min and v_max.
-	v = v_min + (v_max - v_min)*(double(rand())/double(RAND_MAX));
+	*(ptr_v+i) = v_min + (v_max - v_min)*(double(rand())/double(RAND_MAX));
 	//return v;
-	return generateF(v);
+	return generateF(*(ptr_v+i),i);
 }
-double VelDist::generateF(double v)
+double VelDist::generateF(double v, int i)
 {
 	double param1 = 1/(2.*pi*v_th*v_th);
 	double param2 = -(v-v_b) * (v-v_b)/(v_th * v_th * 2.);
 	double param3 = -(v+v_b) * (v+v_b)/(v_th * v_th * 2.);
-	double F = (n_0 * 0.5) * sqrt(param1) * (exp(param2) + exp(param3)) ;
+	*(ptr_f+i) = (n_0 * 0.5) * sqrt(param1) * (exp(param2) + exp(param3)) ;
 
 	//FMAX at v = +v_b or -v_b.
 	double F_MAX = (n_0 * 0.5) * sqrt(param1) * (1 + exp(double((-2. * v_b * v_b)/(v_th*v_th))));
 
 	//generate random w within 0, F_MAX.
 	double w =  F_MAX * (double(rand())/double(RAND_MAX));
-	return acceptV(w,v,F);
+	return acceptV(w,v,*(ptr_f+i),i);
 }
-double VelDist::acceptV(double w, double v, double F)
+double VelDist::acceptV(double w, double v, double f, int i)
 {
 	//acceptance of v.
-	if (w < F)
+	if (w < f)
 	{
-		std::cout << F << ",";
 		return v;
 	}
 	//Rejection and regenerate v.
 	else
 	{
-		return generateV();
+		return generateV(i);
 	}
 }
-void VelDist::sampleV()
-{
-	double i;
-	for (i = 1 ; i <= n_0 ; ++i)
-	{
-		std::cout << generateV() << std::endl;
-	}
-}
-
-
-
-
 
 
 

@@ -15,7 +15,8 @@ private:
 	double v_b = 0.;
 	double v_min = 0.;
 	double v_max = 0.;
-	double v = 0.;
+	double *ptr_v = nullptr;
+	double *ptr_f = nullptr;
 
 public:
 	VelDist();
@@ -26,9 +27,12 @@ public:
 	int setn_0  (int);
 	void setVbounds();
 	void show();
-	double generateV();
-	double generateF(double);
-	double acceptV(double,double,double);
+	double generateV(int);
+	double generateF(double, int);
+	double acceptV(double,double,double,int);
 	void sampleV();
+	int getN();
+	double getF(int);
+	double getV(int);
 };
 #endif
