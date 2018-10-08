@@ -1,3 +1,3 @@
 /build/make.run.linux.x86_64/vel_dist
 /build/make.run.linux.x86_64/*.o
-/build/make.run.linux.x86_64/v.out
+*.out
