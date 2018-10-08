@@ -3,13 +3,13 @@
 FileIO::FileIO()
 {
 	file.open("../../fv.out", std::ios::trunc | std::ios::out);
-	file << "f" << "," << "v" << std::endl;
+	file << "f," << "v," << "x" << std::endl;
 }
 FileIO::~FileIO()
 {
 	file.close();
 }
-void FileIO::fileWrite(double f, double v)
+void FileIO::fileWrite(double f, double v, double x)
 {
-	file << f << "," << v << std::endl;
+	file << f << "," << v << "," << x << std::endl;
 }

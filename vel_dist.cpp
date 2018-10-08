@@ -7,11 +7,12 @@ VelDist::VelDist()
 {
 	//set seed, beam velocity, number of ions/electrons and thermal spread.
 	srand(time(NULL));
-	v_th = 2;
-	n_0  = 2000;
+	v_th = 1;
+	n_0  = 200000;
 	v_b  = 4;
 	ptr_f = new double[n_0];
 	ptr_v = new double[n_0];
+	ptr_x = new double[n_0];
 }
 VelDist::~VelDist()
 {
@@ -37,8 +38,10 @@ int VelDist::setn_0(int n0)
 		n_0 = n0;
 		delete ptr_f;
 		delete ptr_v;
+		delete ptr_x;
 		ptr_f = new double[n_0];
 		ptr_v = new double[n_0];
+		ptr_x = new double[n_0];
 	}
 	return 0;
 }
@@ -71,6 +74,10 @@ double VelDist::getV(int i)
 {
 	return *(ptr_v+i);
 }
+double VelDist::getX(int i)
+{
+	return *(ptr_x+i);
+}
 void VelDist::sampleV()
 {
 	for (int i = 1 ; i <= n_0 ; ++i)
@@ -82,6 +89,7 @@ double VelDist::generateV(int i)
 {
 	//generate random velocity b/w v_min and v_max.
 	*(ptr_v+i) = v_min + (v_max - v_min)*(double(rand())/double(RAND_MAX));
+	*(ptr_x+i) = 0 + (L)*(double(rand())/double(RAND_MAX));
 	//return v;
 	return generateF(*(ptr_v+i),i);
 }

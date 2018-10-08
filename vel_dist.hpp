@@ -11,10 +11,12 @@ private:
 	const double pi =  3.1415926;
 	const double m = 9.10938356e-31;
 	double v_th = 0.;
+	double L = 2;
 	int n_0 = 0;
 	double v_b = 0.;
 	double v_min = 0.;
 	double v_max = 0.;
+	double *ptr_x = nullptr;
 	double *ptr_v = nullptr;
 	double *ptr_f = nullptr;
 
@@ -34,5 +36,6 @@ public:
 	int getN();
 	double getF(int);
 	double getV(int);
+	double getX(int);
 };
 #endif

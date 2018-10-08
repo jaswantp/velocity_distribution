@@ -12,6 +12,6 @@ private:
 public:
 	FileIO();
 	~FileIO();
-	void fileWrite(double,double);
+	void fileWrite(double,double,double);
 };
 #endif
