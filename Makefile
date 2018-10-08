@@ -1,6 +1,6 @@
 PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-OBJS = vel_dist.o driver.o
+OBJS = vel_dist.o file_io.o driver.o 
 
 ifeq ($(BUILD_MODE),debug)
 	CFLAGS += -g
@@ -22,4 +22,4 @@ vel_dist:	$(OBJS)
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 clean:
-	rm -fr vel_dist $(OBJS)
+	rm -fr vel_dist $(OBJS) $(PROJECT_ROOT)*.out
