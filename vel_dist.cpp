@@ -20,6 +20,25 @@ VelDist::~VelDist()
 	delete ptr_v;
 	delete ptr_f;
 }
+
+//Getters start.
+int VelDist::getN()
+{
+	return n_0;
+}
+double VelDist::getF(int i)
+{
+	return *(ptr_f+i);
+}
+double VelDist::getV(int i)
+{
+	return *(ptr_v+i);
+}
+double VelDist::getX(int i)
+{
+	return *(ptr_x+i);
+}
+//Setters start.
 void VelDist::setV_th(double Vth)
 {
 	v_th = Vth;
@@ -55,6 +74,7 @@ void VelDist::setVbounds()
 	v_max = 4*v_b;
 	v_min = -4*v_b;
 }
+//General functions start.
 void VelDist::show()
 {
 	std::cout << "v_b = " << v_b << std::endl;
@@ -63,22 +83,6 @@ void VelDist::show()
 	std::cout << "v_th = " << v_th << std::endl;
 	std::cout << "n_0 = " << n_0 << std::endl;
 
-}
-int VelDist::getN()
-{
-	return n_0;
-}
-double VelDist::getF(int i)
-{
-	return *(ptr_f+i);
-}
-double VelDist::getV(int i)
-{
-	return *(ptr_v+i);
-}
-double VelDist::getX(int i)
-{
-	return *(ptr_x+i);
 }
 void VelDist::sampleV()
 {

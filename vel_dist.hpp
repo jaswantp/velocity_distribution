@@ -24,18 +24,24 @@ public:
 	VelDist();
 	~VelDist();
 
-	void setV_th (double);
-	void setV_b  (double);
-	int setn_0  (int);
-	void setVbounds();
-	void show();
-	double generateV(int);
-	double generateF(double, int);
-	double acceptV(double,double,double,int);
-	void sampleV();
+	//Getters.
 	int getN();
 	double getF(int);
 	double getV(int);
 	double getX(int);
+
+	//Setters.
+	void setV_th (double);
+	void setV_b  (double);
+	int setn_0  (int);
+	void setVbounds();
+
+	//General functions
+	void show();
+	void sampleV();
+	double generateV(int);
+	double generateF(double, int);
+	double acceptV(double,double,double,int);
+
 };
 #endif

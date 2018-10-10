@@ -2,6 +2,7 @@
 #include <iostream>
 FileIO::FileIO()
 {
+	//Open file for writing and place header row.
 	file.open("../../fv.out", std::ios::trunc | std::ios::out);
 	file << "f," << "v," << "x" << std::endl;
 }
