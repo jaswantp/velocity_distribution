@@ -11,14 +11,14 @@ VelDist::VelDist()
 	n_0  = 200000;
 	v_b  = 4;
 	//pointers to f,v,x
-	ptr_f = new double[n_0];
-	ptr_v = new double[n_0];
-	ptr_x = new double[n_0];
+	pF = new double[n_0];
+	pV = new double[n_0];
+	pX = new double[n_0];
 }
 VelDist::~VelDist()
 {
-	delete ptr_v;
-	delete ptr_f;
+	delete pV;
+	delete pF;
 }
 
 //Getters start.
@@ -28,15 +28,15 @@ int VelDist::getN()
 }
 double VelDist::getF(int i)
 {
-	return *(ptr_f+i);
+	return *(pF+i);
 }
 double VelDist::getV(int i)
 {
-	return *(ptr_v+i);
+	return *(pV+i);
 }
 double VelDist::getX(int i)
 {
-	return *(ptr_x+i);
+	return *(pX+i);
 }
 //Setters start.
 void VelDist::setV_th(double Vth)
@@ -57,12 +57,12 @@ int VelDist::setn_0(int n0)
 	{
 		n_0 = n0;
 		//re-allocate for new number of electrons.
-		delete ptr_f;
-		delete ptr_v;
-		delete ptr_x;
-		ptr_f = new double[n_0];
-		ptr_v = new double[n_0];
-		ptr_x = new double[n_0];
+		delete pF;
+		delete pV;
+		delete pX;
+		pF = new double[n_0];
+		pV = new double[n_0];
+		pX = new double[n_0];
 	}
 	return 0;
 }
@@ -88,17 +88,17 @@ void VelDist::sampleV()
 {
 	for (int i = 1 ; i <= n_0 ; ++i)
 	{
-		*(ptr_v+i) = generateV(i);
+		*(pV+i) = generateV(i);
 	}
 }
 double VelDist::generateV(int i)
 {
 	//generate random velocity b/w v_min and v_max.
-	*(ptr_v+i) = v_min + (v_max - v_min)*(double(rand())/double(RAND_MAX));
+	*(pV+i) = v_min + (v_max - v_min)*(double(rand())/double(RAND_MAX));
 	//generate random position co-ordinates within 0 and L
-	*(ptr_x+i) = 0 + (L)*(double(rand())/double(RAND_MAX));
+	*(pX+i) = 0 + (L)*(double(rand())/double(RAND_MAX));
 	//return v;
-	return generateF(*(ptr_v+i),i);
+	return generateF(*(pV+i),i);
 }
 double VelDist::generateF(double v, int i)
 {
@@ -107,14 +107,14 @@ double VelDist::generateF(double v, int i)
 	double param3 = -(v+v_b) * (v+v_b)/(v_th * v_th * 2.);
 
 	//f(v) for i'th electron
-	*(ptr_f+i) = (n_0 * 0.5) * sqrt(param1) * (exp(param2) + exp(param3)) ;
+	*(pF+i) = (n_0 * 0.5) * sqrt(param1) * (exp(param2) + exp(param3)) ;
 
 	//FMAX at v = +v_b or -v_b.
 	double F_MAX = (n_0 * 0.5) * sqrt(param1) * (1 + exp(double((-2. * v_b * v_b)/(v_th*v_th))));
 
 	//generate random w within 0, F_MAX.
 	double w =  F_MAX * (double(rand())/double(RAND_MAX));
-	return acceptV(w,v,*(ptr_f+i),i);
+	return acceptV(w,v,*(pF+i),i);
 }
 double VelDist::acceptV(double w, double v, double f, int i)
 {

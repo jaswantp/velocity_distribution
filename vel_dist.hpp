@@ -16,9 +16,9 @@ private:
 	double v_b = 0.;
 	double v_min = 0.;
 	double v_max = 0.;
-	double *ptr_x = nullptr;
-	double *ptr_v = nullptr;
-	double *ptr_f = nullptr;
+	double* pX = nullptr;
+	double* pV = nullptr;
+	double* pF = nullptr;
 
 public:
 	VelDist();
