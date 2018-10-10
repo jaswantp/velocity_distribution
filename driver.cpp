@@ -3,14 +3,15 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-	VelDist VelDist;
+	//Init instances of VelDist and FileIO
+	VelDist plasma;
 	FileIO file;
-	VelDist.setVbounds();
-	VelDist.show();
-	VelDist.sampleV();
-	for (int i = 1; i <= VelDist.getN(); ++i)
+	plasma.setVbounds();
+	plasma.show();
+	plasma.sampleV();
+	for (int i = 1; i <= plasma.getN(); ++i)
 	{
-		file.fileWrite(VelDist.getF(i), VelDist.getV(i), VelDist.getX(i));
+		file.fileWrite(plasma.getF(i), plasma.getV(i), plasma.getX(i));
 	}
 	return 0;
 }
