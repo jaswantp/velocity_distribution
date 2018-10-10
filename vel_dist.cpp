@@ -95,6 +95,7 @@ double VelDist::generateV(int i)
 {
 	//generate random velocity b/w v_min and v_max.
 	*(ptr_v+i) = v_min + (v_max - v_min)*(double(rand())/double(RAND_MAX));
+	//generate random position co-ordinates within 0 and L
 	*(ptr_x+i) = 0 + (L)*(double(rand())/double(RAND_MAX));
 	//return v;
 	return generateF(*(ptr_v+i),i);
