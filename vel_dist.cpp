@@ -7,9 +7,6 @@ VelDist::VelDist()
 {
 	//set seed, beam velocity, number of ions/electrons and thermal spread.
 	srand(time(NULL));
-	v_th = 1;
-	n_0  = 200000;
-	v_b  = 4;
 	//pointers to f,v,x
 	pF = new double[n_0];
 	pV = new double[n_0];

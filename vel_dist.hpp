@@ -10,10 +10,10 @@ class VelDist
 private:
 	const double pi =  3.1415926;
 	const double m = 9.10938356e-31;
-	double v_th = 0.;
+	double v_th = 2.;
 	double L = 2;
-	int n_0 = 0;
-	double v_b = 0.;
+	int n_0 = 20000;
+	double v_b = 5.;
 	double v_min = 0.;
 	double v_max = 0.;
 	double* pX = nullptr;
