@@ -13,4 +13,5 @@ plt.title("Vel_Dist")
 plt.xlabel("velocity")
 plt.ylabel("f(v)")
 plt.show()
+plot.savefig("f-v.png")
 
