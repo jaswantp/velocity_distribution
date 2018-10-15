@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/vel_dist",
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
