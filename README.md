@@ -12,6 +12,9 @@ L = 1000;
 n_0 = 200000;
 v_b = 5.;
 ```
+The distribution function for the default values would be
+![Maxwellian for two counter-streaming beams](https://github.com/jaswantp/velocity_distribution/edit/master/images/f-v.png)
+
 type
 ```
 ./clean.sh
