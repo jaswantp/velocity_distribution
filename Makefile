@@ -20,4 +20,4 @@ vel_dist:	$(OBJS)
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 clean:
-	rm -fr vel_dist $(OBJS) *.out
+	rm -fr vel_dist $(OBJS) *.out *.png
