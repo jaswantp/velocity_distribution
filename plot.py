@@ -5,10 +5,9 @@ data = pd.read_csv("fv.out")
 
 f=list(data.f)
 v=list(data.v)
-x=list(data.x)
 
 plt.plot(v,f,".")
-plt.title("Vel_Dist")
+plt.title("Velocity Distribution")
 
 plt.xlabel("velocity")
 plt.ylabel("f(v)")
