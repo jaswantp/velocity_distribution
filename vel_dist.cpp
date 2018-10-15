@@ -10,7 +10,6 @@ VelDist::VelDist()
 	//pointers to f,v,x
 	pF = new double[n_0];
 	pV = new double[n_0];
-	pX = new double[n_0];
 }
 VelDist::~VelDist()
 {
@@ -30,10 +29,6 @@ double VelDist::getF(int i)
 double VelDist::getV(int i)
 {
 	return *(pV+i);
-}
-double VelDist::getX(int i)
-{
-	return *(pX+i);
 }
 //Setters start.
 void VelDist::setV_th(double Vth)
@@ -56,10 +51,8 @@ int VelDist::setn_0(int n0)
 		//re-allocate for new number of electrons.
 		delete pF;
 		delete pV;
-		delete pX;
 		pF = new double[n_0];
 		pV = new double[n_0];
-		pX = new double[n_0];
 	}
 	return 0;
 }
