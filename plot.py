@@ -12,5 +12,5 @@ plt.title("Velocity Distribution")
 plt.xlabel("velocity")
 plt.ylabel("f(v)")
 plt.show()
-plot.savefig("f-v.png")
+plt.savefig("f-v.png")
 
