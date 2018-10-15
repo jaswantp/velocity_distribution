@@ -9,7 +9,7 @@ FileIO::~FileIO()
 {
 	file.close();
 }
-void FileIO::fileWrite(char *a, char *b, char *c)
+void FileIO::fileWrite(const char *a, const char *b, const char *c)
 {
 	//write headers
 	file << a << "," << b << "," << c << std::endl;
