@@ -13,5 +13,6 @@ public:
 	FileIO();
 	~FileIO();
 	void fileWrite(double,double,double);
+	void fileWrite(char*,char*,char*);
 };
 #endif
