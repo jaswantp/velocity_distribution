@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv("fv.out")
 
-f=list(data.f(v))
+f=list(data.f
 v=list(data.v)
 x=list(data.x)
 
