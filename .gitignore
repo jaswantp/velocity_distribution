@@ -2,4 +2,4 @@ vel_dist
 *.o
 *.out
 .directory
-*.png
+./*.png
