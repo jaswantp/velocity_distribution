@@ -9,6 +9,7 @@ int main(int argc, char **argv) {
 	plasma.setVbounds();
 	plasma.show();
 	plasma.sampleV();
+	file.fileWrite("f(v), ","v, ","x");
 	for (int i = 1; i <= plasma.getN(); ++i)
 	{
 		file.fileWrite(plasma.getF(i), plasma.getV(i), plasma.getX(i));
