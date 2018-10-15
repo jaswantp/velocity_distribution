@@ -15,7 +15,6 @@ private:
 	double v_b = 5.;
 	double v_min = 0.;
 	double v_max = 0.;
-	double* pX = nullptr;
 	double* pV = nullptr;
 	double* pF = nullptr;
 
@@ -27,7 +26,6 @@ public:
 	int getN();
 	double getF(int);
 	double getV(int);
-	double getX(int);
 
 	//Setters.
 	void setV_th (double);
