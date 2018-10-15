@@ -12,10 +12,10 @@ FileIO::~FileIO()
 void FileIO::fileWrite(char *a, char *b, char *c)
 {
 	//write headers
-	file << a << "," << b << "," << c << std::endl;
+	file << a << ", " << b << ", " << c << std::endl;
 }
 void FileIO::fileWrite(double f, double v, double x)
 {
 	//write data
-	file << f << "," << v << "," << x << std::endl;
+	file << f << ", " << v << ", " << x << std::endl;
 }
