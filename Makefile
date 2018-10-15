@@ -1,3 +1,10 @@
+DEBUG ?= 1
+ifeq ($(DEBUG), 1)
+    CFLAGS =-g3 -DDEBUG
+else
+    CFLAGS=-DNDEBUG
+endif
+
 OBJS = vel_dist.o file_io.o driver.o 
 CXX = g++ -O3
 
