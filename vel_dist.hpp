@@ -9,7 +9,6 @@ class VelDist
 {
 private:
 	const double pi =  3.1415926;
-	const double m = 9.11e-31;
 	double v_th = 1.;
 	double L = 1000;
 	int n_0 = 200000;
