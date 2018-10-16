@@ -9,10 +9,11 @@ int main(int argc, char **argv) {
 	plasma.setVbounds();
 	plasma.show();
 	plasma.sampleV();
-	file.fileWrite("f","v");
+	plasma.setX();
+	file.fileWrite("f","v","x");
 	for (int i = 1; i <= plasma.getN(); ++i)
 	{
-		file.fileWrite(plasma.getF(i), plasma.getV(i));
+		file.fileWrite(plasma.getF(i), plasma.getV(i),plasma.getPositionElec(i));
 	}
 	return 0;
 }

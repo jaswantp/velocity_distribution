@@ -12,7 +12,7 @@ private:
 public:
 	FileIO();
 	~FileIO();
-	void fileWrite(double,double);
-	void fileWrite(const char*,const char*);
+	void fileWrite(double,double,double);
+	void fileWrite(const char*,const char*,const char*);
 };
 #endif
