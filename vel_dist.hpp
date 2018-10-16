@@ -28,6 +28,7 @@ public:
 
 	//Getters.
 	int getN();
+	double getL();
 	double getX(int);
 	double getF(int);
 	double getV(int);
@@ -36,7 +37,8 @@ public:
 	double getPositionIon(int);
 
 	//Setters.
-	int setn_0  (int);
+	void setN (int);
+	void setL(double);
 	void setV_th (double);
 	void setV_b  (double);
 	void setVbounds();

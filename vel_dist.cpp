@@ -8,22 +8,29 @@ VelDist::VelDist()
 	//set seed, beam velocity, number of ions/electrons and thermal spread.
 	srand(time(NULL));
 	//pointers to f,v,x
-	pX = new double[n_0];
-	pF = new double[n_0];
-	pV = new double[n_0];	
-	pPositionElec = new double[n_0];
-	pPositionIon  = new double[n_0];
+	this->pX = new double[n_0];
+	this->pF = new double[n_0];
+	this->pV = new double[n_0];	
+	this->pPositionElec = new double[n_0];
+	this->pPositionIon  = new double[n_0];
 }
 VelDist::~VelDist()
 {
-	delete pV;
-	delete pF;
+	delete this->pX;
+	delete this->pV;
+	delete this->pF;
+	delete this->pPositionElec;
+	delete this->pPositionIon;
 }
 
 //Getters start.
 int VelDist::getN()
 {
 	return this->n_0;
+}
+double VelDist::getL()
+{
+	return this->L;
 }
 double VelDist::getX(int i)
 {
@@ -50,7 +57,7 @@ double VelDist::getPositionIon(int i)
 	return *(pPositionIon+i);
 }
 //Setters start.
-int VelDist::setn_0(int n0)
+void VelDist::setN(int n0)
 {
 	if (n0 < 0)
 	{
@@ -60,18 +67,21 @@ int VelDist::setn_0(int n0)
 	{
 		this->n_0 = n0;
 		//re-allocate for new number of electrons.
-		delete pX;
-		delete pF;
-		delete pV;
-		delete pPositionElec;
-		delete pPositionIon;
-		pX = new double[n_0];
-		pF = new double[n_0];
-		pV = new double[n_0];
-		pPositionElec = new double[n_0];
-		pPositionIon  = new double[n_0];
+		delete this->pX;
+		delete this->pF;
+		delete this->pV;
+		delete this->pPositionElec;
+		delete this->pPositionIon;
+		this->pX = new double[n_0];
+		this->pF = new double[n_0];
+		this->pV = new double[n_0];
+		this->pPositionElec = new double[n_0];
+		this->pPositionIon  = new double[n_0];
 	}
-	return 0;
+}
+void VelDist::setL(double L)
+{
+	this->L = L;
 }
 void VelDist::setV_th(double Vth)
 {
