@@ -15,8 +15,12 @@ private:
 	double v_b = 5.;
 	double v_min = 0.;
 	double v_max = 0.;
+	double tolerance = 1e-10;
+	double* pX = nullptr;
 	double* pV = nullptr;
 	double* pF = nullptr;
+	double* pPositionElec = nullptr; //would be of size numElectrons
+	double* pPositionIon  = nullptr; //would be of size numIons
 
 public:
 	VelDist();
@@ -24,17 +28,24 @@ public:
 
 	//Getters.
 	int getN();
+	double getX(int);
 	double getF(int);
 	double getV(int);
+	double getTolerance();
+	double getPositionElec(int);
+	double getPositionIon(int);
 
 	//Setters.
+	int setn_0  (int);
 	void setV_th (double);
 	void setV_b  (double);
-	int setn_0  (int);
 	void setVbounds();
+	void setTolerance(double);
+	void setX();
 
 	//General functions
 	void show();
+	void generateX(int);
 	void sampleV();
 	double generateV(int);
 	double generateF(double, int);
