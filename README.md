@@ -13,7 +13,7 @@ n_0 = 200000;
 v_b = 5.;
 ```
 The distribution function for the default values would be
-![Maxwellian for two counter-streaming beams](/images/f-v.png)
+![Maxwellian for two counter-streaming beams](/images/fvx.png)
 
 To delete all output files, .png, objects, executables, type:
 ```
