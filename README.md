@@ -12,8 +12,10 @@ L = 1000;
 n_0 = 200000;
 v_b = 5.;
 ```
-type
+The distribution function for the default values would be
+![Maxwellian for two counter-streaming beams](/images/f-v.png)
+
+To delete all output files, .png, objects, executables, type:
 ```
 ./clean.sh
 ```
-to delete all output files, .png, objects, executables.
