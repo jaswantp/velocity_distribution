@@ -3,7 +3,7 @@
 FileIO::FileIO()
 {
 	//Open file for writing and place header row.
-	file.open("./fv.out", std::ios::trunc | std::ios::out);
+	file.open("./fvx.out", std::ios::trunc | std::ios::out);
 }
 FileIO::~FileIO()
 {
